@@ -1,4 +1,7 @@
-# BioCypher project template
+# BioCypher Disordered Proteins Project
+The dataset and IDPO ontology were downloaded from the DisProt database: https://disprot.org/download. The dataset was parsed using the preprocess_annots.py script. The preprocessed dataset is in the data folder whie the eco and idpo ontologies are in data/ontologies folder.
+
+
 A quick way to set up a BioCypher-driven knowledge graph pipeline.
 
 ## Using the GitHub Template functionality
@@ -9,18 +12,9 @@ on GitHub.
 ## ⚙️ Installation (local, for docker see below)
 1. Clone this repository and rename to your project name.
 ```{bash}
-git clone https://github.com/biocypher/project-template.git
-mv project-template my-project
-cd my-project
-```
-2. Make the repository your own.
-```{bash}
-rm -rf .git
-git init
-git add .
-git commit -m "Initial commit"
-# (you can add your remote repository here)
-```
+git clone https://github.com/biocypher/dispro-kg-project.git
+cd dispro-kg-project
+
 3. Install the dependencies using [Poetry](https://python-poetry.org/). (Or feel
 free to use your own dependency management system. We provide a `pyproject.toml`
 to define dependencies.)
@@ -30,7 +24,7 @@ poetry install
 4. You are ready to go!
 ```{bash}
 poetry shell
-python create_knowledge_graph.py
+python create_kg_script.py
 ```
 
 
