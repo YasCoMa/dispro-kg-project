@@ -1,18 +1,16 @@
 [tool.poetry]
-name = "biocypher-project-template"
-version = "0.5.37"
-description = "Template for creating a BioCypher-driven knowledge graph"
-authors = [
-    "Sebastian Lobentanzer <sebastian.lobentanzer@gmail.com>",
-    "Andreas Maier <andreas.maier-1@uni-hamburg.de>",
-]
-license = "MIT"
-readme = "README.md"
+name = "dispro-kg-project"
+version = "0.1.0"
+description = ""
+authors = ["yasmmin <ycfrenchgirl2@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-biocypher = "^0.5.37"
+biocypher = "^0.5.43"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
