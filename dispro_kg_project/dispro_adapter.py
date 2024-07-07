@@ -269,11 +269,14 @@ class DisProAdapter:
         }
 
         for ntype in self.node_types:
+            nodes = set()
             fields = loc_dict[ ntype ]
             for index, row in self.data.iterrows():
                 _id, _props = self._parse_info_node(row, fields)
-                if( str(_id) != 'nan' ):
-                    yield _id, ntype, _props
+                if( not _id in nodes ):
+                    nodes.add(_id)
+                    if( str(_id) != 'nan' ):
+                        yield _id, ntype, _props
 
     def _get_annotation_nodeId(self, row):
         _id = None
@@ -323,11 +326,15 @@ class DisProAdapter:
         }
 
         for etype in self.edge_types:
+            edges = set()
             _label = etype
             fields = loc_dict[ _label ]
             for index, row in self.data.iterrows():
                 _source, _target, _props = self._parse_info_edge(row, fields)
-                yield _source, _target, _label, _props
+                _id = f"{_source}_{_target}"
+                if( not _id in edges ):
+                    edges.add(_id)
+                    yield _source, _target, _label, _props
     
     def _set_up_types_and_fields(
         self, node_types, node_fields, edge_types, edge_fields

@@ -3,7 +3,7 @@ import pandas as pd
 from bioregistry import normalize_curie
 
 def run():
-    df = pd.read_csv('data/dispro_release.tsv', sep='\t')
+    df = pd.read_csv('../data/dispro_release.tsv', sep='\t')
 
     annot = { "BIOLOGICAL_PROCESS": "biological_process", "CELLULAR_COMPONENT": "cellular_component", "MOLECULAR_FUNCTION": "molecular_function", "STRUCTURAL_STATE": "structural_state", "STRUCTURAL_TRANSITION": "structural_transition", "DISORDER_FUNCTION": "disorder_function" }
     
@@ -49,8 +49,9 @@ def run():
             aux[ a ].append( v )
         
     filt = df[ ['name', 'organism', 'start', 'end', 'ec_name', 'region_sequence'] ]
+    filt['name'] = filt.name.apply(lambda x: x.replace("'", ''))
     for k in aux:
         filt[k] = aux[k]
-    filt.to_csv( 'data/preprocessed_dispro.tsv', index=None, sep='\t' )
+    filt.to_csv( '../data/preprocessed_dispro.tsv', index=None, sep='\t' )
     
 run()

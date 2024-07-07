@@ -1,5 +1,5 @@
 # BioCypher Disordered Proteins Project
-The dataset and IDPO ontology were downloaded from the DisProt database: https://disprot.org/download. The dataset was parsed using the preprocess_annots.py script. The preprocessed dataset is in the data folder whie the eco and idpo ontologies are in data/ontologies folder.
+The dataset and IDPO ontology were downloaded from the DisProt database: https://disprot.org/download. The dataset was parsed using the scripts/preprocess_annots.py code. The preprocessed dataset is in the data folder whie the eco and idpo ontologies are in data/ontologies folder.
 
 
 A quick way to set up a BioCypher-driven knowledge graph pipeline.
@@ -21,12 +21,17 @@ to define dependencies.)
 ```{bash}
 poetry install
 ```
-4. You are ready to go!
+4. To create the knowledge graph
 ```{bash}
 poetry shell
 python create_kg_script.py
 ```
 
+4. To run unittests
+```{bash}
+cd tests
+python test_dispro_kg_project.py
+```
 
 ## 🛠 Usage
 
